@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ثبت‌نام | تبادل مهارت دانشجویان</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+
+  <style>
+    body { font-family: "Vazirmatn", Tahoma, sans-serif; margin: 0; background: rgb(var(--mdui-color-surface-container-low)); }
+    .container { max-width: 560px; margin: 24px auto; padding: 0 16px; }
+    .form-card { display: block; width: 100%; padding: 24px; box-sizing: border-box; }
+    h1 { margin: 0 0 4px; font-size: 1.5rem; }
+    p.sub { margin: 0 0 20px; color: rgb(var(--mdui-color-on-surface-variant)); font-size: .9rem; }
+    form > * { margin-bottom: 16px; }
+    mdui-text-field, mdui-select { width: 100%; }
+    .row { display: flex; gap: 12px; }
+    .row > * { flex: 1; min-width: 0; }
+    .actions { display: flex; gap: 12px; margin-top: 8px; }
+    .actions mdui-button { flex: 1; }
+    .links { text-align: center; font-size: .9rem; }
+    .links a { color: rgb(var(--mdui-color-primary)); text-decoration: none; }
+    .error { color: #ba1a1a; margin-bottom: 16px; }
+  </style>
+</head>
+
+<body>
+
+  <mdui-top-app-bar>
+    <mdui-top-app-bar-title>تبادل مهارت</mdui-top-app-bar-title>
+    <div style="flex-grow:1"></div>
+    <mdui-button variant="text" href="{% url 'skill_list' %}">کاتالوگ</mdui-button>
+    <mdui-button variant="text" href="{% url 'about' %}">درباره ما</mdui-button>
+    <mdui-button variant="text" href="{% url 'contact' %}">تماس با ما</mdui-button>
+    <mdui-button variant="text" href="{% url 'login' %}">ورود</mdui-button>
+  </mdui-top-app-bar>
+
+  <div class="container">
+
+    <mdui-card variant="elevated" class="form-card">
+
+      <h1>ساخت حساب کاربری</h1>
+
+      <p class="sub">
+        به جمع دانشجوهایی که مهارت‌هاشون رو به اشتراک می‌ذارن بپیوندید.
+      </p>
+
+      {% if error %}
+        <p class="error">{{ error }}</p>
+      {% endif %}
+
+      <form id="register-form" method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+          <mdui-text-field
+            name="first_name"
+            label="نام"
+            required>
+          </mdui-text-field>
+
+          <mdui-text-field
+            name="last_name"
+            label="نام خانوادگی"
+            required>
+          </mdui-text-field>
+        </div>
+
+        <mdui-text-field
+          name="username"
+          label="نام کاربری"
+          required>
+        </mdui-text-field>
+
+        <mdui-text-field
+          name="student_id"
+          label="شماره دانشجویی"
+          type="text"
+          required>
+        </mdui-text-field>
+
+        <mdui-text-field
+          name="email"
+          label="ایمیل دانشگاهی"
+          type="email"
+          required>
+        </mdui-text-field>
+
+        <mdui-select
+          name="major"
+          label="رشته تحصیلی"
+          required>
+
+          <mdui-menu-item value="cs">مهندسی کامپیوتر</mdui-menu-item>
+          <mdui-menu-item value="it">فناوری اطلاعات</mdui-menu-item>
+          <mdui-menu-item value="ee">مهندسی برق</mdui-menu-item>
+          <mdui-menu-item value="math">ریاضی</mdui-menu-item>
+          <mdui-menu-item value="other">سایر</mdui-menu-item>
+
+        </mdui-select>
+
+        <mdui-text-field
+          name="password"
+          label="رمز عبور"
+          type="password"
+          toggle-password
+          minlength="8"
+          helper="حداقل ۸ کاراکتر"
+          required>
+        </mdui-text-field>
+
+        <mdui-text-field
+          name="confirm_password"
+          label="تکرار رمز عبور"
+          type="password"
+          toggle-password
+          required>
+        </mdui-text-field>
+
+        <mdui-checkbox name="terms" required>
+          قوانین و مقررات سامانه را می‌پذیرم
+        </mdui-checkbox>
+
+        <div class="actions">
+          <mdui-button type="submit" variant="filled">
+            ثبت‌نام
+          </mdui-button>
+
+          <mdui-button type="reset" variant="outlined">
+            پاک کردن
+          </mdui-button>
+        </div>
+
+        <div class="links">
+          قبلاً ثبت‌نام کرده‌اید؟
+          <a href="{% url 'login' %}">وارد شوید</a>
+        </div>
+
+      </form>
+
+    </mdui-card>
+  </div>
+
+</body>
+</html>

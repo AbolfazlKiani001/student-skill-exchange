@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>درباره ما | تبادل مهارت دانشجویان</title>
+  <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+  <style>
+    body { font-family: "Vazirmatn", Tahoma, sans-serif; margin: 0; background: rgb(var(--mdui-color-surface-container-low)); line-height: 1.9; }
+    .container { max-width: 800px; margin: 24px auto; padding: 0 16px 40px; }
+    mdui-card { display: block; width: 100%; padding: 24px; box-sizing: border-box; margin-bottom: 16px; }
+    h1 { margin: 0 0 8px; font-size: 1.7rem; }
+    h2 { margin: 0 0 12px; font-size: 1.2rem; }
+    h3 { margin: 8px 0 4px; font-size: 1rem; }
+    p { margin: 0; color: rgb(var(--mdui-color-on-surface-variant)); }
+    .hero { background: rgb(var(--mdui-color-primary-container)); }
+    .hero p { color: rgb(var(--mdui-color-on-primary-container)); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .value { text-align: center; padding: 16px 8px; border-radius: 16px; background: rgb(var(--mdui-color-surface-container-low)); }
+    .value .icon { font-size: 2rem; }
+    .value p { font-size: .9rem; }
+    .section-note { font-size: .85rem; margin-bottom: 8px; }
+    .team { display: flex; align-items: center; gap: 16px; }
+    .actions { display: flex; gap: 12px; }
+    .actions mdui-button { flex: 1; }
+  </style>
+</head>
+<body>
+  <mdui-top-app-bar>
+    <mdui-top-app-bar-title>تبادل مهارت</mdui-top-app-bar-title>
+    <div style="flex-grow:1"></div>
+    <mdui-button variant="text" href="{% url 'skill_list' %}">کاتالوگ</mdui-button>
+    <mdui-button variant="text" href="{% url 'contact' %}">تماس با ما</mdui-button>
+    <mdui-button variant="text" href="{% url 'login' %}">ورود</mdui-button>
+    <mdui-button variant="text" href="{% url 'register' %}">ثبت‌نام</mdui-button>
+  </mdui-top-app-bar>
+
+  <div class="container">
+
+    <!-- معرفی -->
+    <mdui-card variant="filled" class="hero">
+      <h1>یاد بگیر، یاد بده</h1>
+      <p>«تبادل مهارت دانشجویان» بستری برای یادگیری متقابل است. هر دانشجو چیزی بلد است که دیگری می‌خواهد یاد بگیرد؛ ما این دو نفر را به هم وصل می‌کنیم.</p>
+      <div class="chips">
+        <mdui-chip>یادگیری متقابل</mdui-chip>
+        <mdui-chip>یادگیری گروهی</mdui-chip>
+        <mdui-chip>تبادل مهارت</mdui-chip>
+      </div>
+    </mdui-card>
+
+    <!-- ماجرای ما -->
+    <mdui-card variant="elevated">
+      <h2>چرا این سامانه ساخته شد؟</h2>
+      <p>در هر دانشگاه، دانشجویانی هستند که برنامه‌نویسی، طراحی، زبان، موسیقی یا ده‌ها مهارت دیگر را خوب بلدند، و دانشجویانی که دقیقاً دنبال همین مهارت‌ها می‌گردند. اما پیدا کردن هم سخت است. این سامانه ساخته شد تا این پیدا کردن ساده و رایگان شود.</p>
+    </mdui-card>
+
+    <!-- ماموریت و چشم‌انداز -->
+    <mdui-card variant="elevated">
+      <h2>ماموریت و چشم‌انداز</h2>
+      <h3>ماموریت</h3>
+      <p>فراهم کردن فضایی که دانشجوها بتوانند به‌راحتی افرادی با علایق و نیازهای آموزشی مشابه پیدا کنند و تجربه‌هایشان را با هم رد و بدل کنند.</p>
+      <h3>چشم‌انداز</h3>
+      <p>تبدیل شدن به جامعه‌ای زنده از دانشجویانی که یادگیری را کاری مشترک می‌دانند، نه رقابتی.</p>
+    </mdui-card>
+
+    <!-- ارزش‌ها -->
+    <mdui-card variant="elevated">
+      <h2>ارزش‌های ما</h2>
+      <div class="values">
+        <div class="value">
+          <div class="icon">🤝</div>
+          <h3>همکاری</h3>
+          <p>هر کس هم یاد می‌دهد و هم یاد می‌گیرد.</p>
+        </div>
+        <div class="value">
+          <div class="icon">🎓</div>
+          <h3>دسترسی برابر</h3>
+          <p>یادگیری برای همه دانشجوها آزاد و رایگان است.</p>
+        </div>
+        <div class="value">
+          <div class="icon">🔒</div>
+          <h3>اعتماد و احترام</h3>
+          <p>فضایی امن با اطلاعات کاربری محافظت‌شده.</p>
+        </div>
+      </div>
+    </mdui-card>
+
+    <!-- چطور کار می‌کند -->
+    <mdui-card variant="elevated">
+      <h2>چطور کار می‌کند؟</h2>
+      <mdui-list>
+        <mdui-list-item rounded headline="ثبت‌نام کنید" description="با شماره دانشجویی و رشته‌تان حساب بسازید.">
+          <mdui-avatar slot="icon">۱</mdui-avatar>
+        </mdui-list-item>
+        <mdui-list-item rounded headline="مهارت‌ها را ببینید" description="فهرست مهارت‌های ثبت‌شده را مرور کنید و جزئیات هر کدام را بخوانید.">
+          <mdui-avatar slot="icon">۲</mdui-avatar>
+        </mdui-list-item>
+        <mdui-list-item rounded headline="ارتباط بگیرید" description="با فرم تماس یا پیشنهادهایتان با ما در ارتباط باشید.">
+          <mdui-avatar slot="icon">۳</mdui-avatar>
+        </mdui-list-item>
+      </mdui-list>
+    </mdui-card>
+
+    <!-- امکانات -->
+    <mdui-card variant="elevated">
+      <h2>امکانات سامانه</h2>
+      <p class="section-note">هم‌اکنون فعال:</p>
+      <div class="chips">
+        <mdui-chip>✓ ثبت‌نام و ورود</mdui-chip>
+        <mdui-chip>✓ مرور مهارت‌ها</mdui-chip>
+        <mdui-chip>✓ فرم تماس</mdui-chip>
+      </div>
+      <p class="section-note" style="margin-top:16px">به‌زودی:</p>
+      <div class="chips">
+        <mdui-chip variant="input">پروفایل با مهارت‌ها</mdui-chip>
+        <mdui-chip variant="input">درخواست یادگیری</mdui-chip>
+        <mdui-chip variant="input">زمان‌بندی جلسات</mdui-chip>
+        <mdui-chip variant="input">امتیاز و نظر</mdui-chip>
+        <mdui-chip variant="input">پیشنهاد هوشمند افراد</mdui-chip>
+      </div>
+    </mdui-card>
+
+    <!-- سازنده -->
+    <mdui-card variant="elevated">
+      <h2>سازنده پروژه</h2>
+      <div class="team">
+        <mdui-avatar>ا</mdui-avatar>
+        <div>
+          <h3 style="margin:0">ابوالفضل کیانی ابری</h3>
+          <p>دانشجوی درس برنامه‌نویسی تحت وب</p>
+        </div>
+      </div>
+    </mdui-card>
+
+    <!-- دعوت به اقدام -->
+    <div class="actions">
+      <mdui-button variant="filled" href="{% url 'register' %}">ثبت‌نام</mdui-button>
+      <mdui-button variant="outlined" href="{% url 'login' %}">ورود</mdui-button>
+    </div>
+  </div>
+</body>
+</html>

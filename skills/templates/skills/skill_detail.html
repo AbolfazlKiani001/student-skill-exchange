@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ skill.name }} | تبادل مهارت دانشجویان</title>
+  <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+  <style>
+    body { font-family: "Vazirmatn", Tahoma, sans-serif; margin: 0; background: rgb(var(--mdui-color-surface-container-low)); line-height: 1.9; }
+    .container { max-width: 720px; margin: 24px auto; padding: 0 16px 40px; }
+    mdui-card { display: block; width: 100%; padding: 24px; box-sizing: border-box; margin-bottom: 16px; }
+    h1 { margin: 0 0 8px; font-size: 1.6rem; }
+    h2 { margin: 16px 0 4px; font-size: 1rem; }
+    p { margin: 0; color: rgb(var(--mdui-color-on-surface-variant)); }
+  </style>
+</head>
+<body>
+  <mdui-top-app-bar>
+    <mdui-top-app-bar-title>تبادل مهارت</mdui-top-app-bar-title>
+    <div style="flex-grow:1"></div>
+    <mdui-button variant="text" href="{% url 'skill_list' %}">کاتالوگ</mdui-button>
+    <mdui-button variant="text" href="{% url 'about' %}">درباره ما</mdui-button>
+    <mdui-button variant="text" href="{% url 'contact' %}">تماس با ما</mdui-button>
+  </mdui-top-app-bar>
+
+  <div class="container">
+    <mdui-card variant="elevated">
+      <h1>{{ skill.name }}</h1>
+      <mdui-chip>{{ skill.category }}</mdui-chip>
+
+      <h2>توضیحات</h2>
+      <p>{{ skill.description }}</p>
+
+      <h2>تاریخ ثبت</h2>
+      <p>{{ skill.created_at|date:"Y/m/d H:i" }}</p>
+    </mdui-card>
+
+    <mdui-button variant="outlined" href="{% url 'skill_list' %}">بازگشت به کاتالوگ</mdui-button>
+  </div>
+</body>
+</html>
